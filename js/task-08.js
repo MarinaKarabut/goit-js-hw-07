@@ -13,7 +13,6 @@ destroyButton.addEventListener('click', destroyBoxes);
 
 
 function createBoxes(amount) {
-    
 
     for (let i = 1; i <= amount; i += 1) {
         const div = document.createElement('div');

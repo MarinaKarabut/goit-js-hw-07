@@ -10,12 +10,12 @@ let counterValue = 0;
 
 function increment () {
     counterValue += 1;
-    value.innerHTML = counterValue;
+    value.textContent = counterValue;
 }
 
 function decrement() {
-    counterValue > 0 ? counterValue -= 1 : 0;   
-    value.innerHTML = counterValue;
+    counterValue > 0 ? counterValue -= 1 : 0;
+    value.textContent = counterValue;
 }
 
 
