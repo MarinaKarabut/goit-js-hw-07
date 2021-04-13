@@ -1,42 +1,40 @@
-const renderButton = document.querySelector('[data-action="render"]');
-const destroyButton = document.querySelector('[data-action="destroy"]');
+const renderButton = document.querySelector('[data-action="render"]')
+const destroyButton = document.querySelector('[data-action="destroy"]')
 const boxes = document.getElementById('boxes')
 const input = document.querySelector('#controls input')
-console.log(renderButton);
-console.log(destroyButton);
-console.log(boxes);
+console.log(renderButton)
+console.log(destroyButton)
+console.log(boxes)
 
-renderButton.addEventListener('click', function () {
-    createBoxes(input.value)
-});
-destroyButton.addEventListener('click', destroyBoxes);
+renderButton.addEventListener('click', getAmount)
 
+destroyButton.addEventListener('click', destroyBoxes)
 
+function getAmount() {
+    const inputValue = Number(input.value)
+    createBoxes(inputValue)
+}
 function createBoxes(amount) {
+  let basicWidth = 30
+  let basicHeight = 30
+  const arrayDiv = []
+  for (let i = 1; i <= amount; i += 1) {
+    const div = document.createElement('div')
+    div.style.width = `${basicWidth}px`
+    div.style.height = `${basicHeight}px`
+    basicWidth += 10
+    basicHeight += 10
 
-    for (let i = 1; i <= amount; i += 1) {
-        const div = document.createElement('div');
-        div.style.width = `${20 + i * 10}px`;
-        div.style.height = `${20 + i * 10}px`;
-        div.style.backgroundColor = `rgba( ${random()} , ${random()} , ${random()}`;
-        boxes.append(div);
-    }
-
- 
+    div.style.backgroundColor = `rgba( ${random()} , ${random()} , ${random()})`
+    arrayDiv.push(div)
+  }
+  boxes.append(...arrayDiv)
 }
 
-
 function destroyBoxes() {
-    boxes.innerHTML = ''
-
+  boxes.innerHTML = ''
 }
 
 function random() {
-  return Math.floor(Math.random() * 256);
+  return Math.floor(Math.random() * 256)
 }
-
-
-
-
-
-
